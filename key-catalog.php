@@ -1,8 +1,12 @@
 <html>
-    <head></head>
+    <head>
+    <link href="style-key.css" rel="stylesheet" type="text/css" />
+    </head>
     <body>
 
     <?php 
+
+include("header.php");
 $products = ["roue", "planche","stickers"];
 
 $roue = [
@@ -30,12 +34,13 @@ $stickers = [
 ];
 
 
+
 ?>
 
 
 <table>
     <tr>
-       <p>Article: <?php echo $roue['name'] ?></p>
+       <p>gitArticle: <?php echo $roue['name'] ?></p>
        <p>Price: <?php echo $roue ['price'] ?>euros </p> 
         <p>Weight: <?php echo $roue ['weight'] ?>grammes </p>
         <p>Discount: <?php echo $roue ['discount'] ?>%</p>
@@ -62,6 +67,8 @@ $stickers = [
         <img src='<?php echo $stickers ['picture'] ?> ' />
     </tr>
 </table>
-
+<?php 
+include("footer.php");
+?>
     </body>
 </html>
