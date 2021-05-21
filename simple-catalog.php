@@ -26,5 +26,19 @@ echo "My last product is $last_product";
     <li><?php echo $products[2]?></li>
 </ls>
 
+
+<?php 
+
+$index =0;
+
+while ($index < count($products) ) {
+    $product = $products[$index];
+    $index += 1;
+    echo "<br/>";
+    echo "Affichage du produit : " . $product . "<br/>";
+}
+
+?>
+
 </body>
 </html>
