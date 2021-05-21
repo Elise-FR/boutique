@@ -75,6 +75,55 @@ $products =[
     </tr>
 </table>
 
+
+<?php 
+
+$index =0;
+
+while ($index < count($products)  ) {
+
+$tableau_index =array_keys($products);
+    $affichage = $tableau_index[$index];
+  
+    echo "Affichage du produit : " . $affichage . "<br/>";
+
+    $index += 1;
+
+    $index2=0;
+
+    while ($index2 < count($products[$affichage])) {
+
+
+        $tableau_index2 = array_values($products[$affichage]);
+        $affichage2 = $tableau_index2[$index2];
+
+        echo "Affichage caractéristiques: " . $affichage2 . "<br/>";
+        
+
+        $index2 += 1;
+    }
+}
+?>
+
+
+<table>
+
+<?php 
+
+$index =0;
+
+while ($index < count($products)  ) {
+
+    <tr>
+       <p>Article: <?php echo $products['roue'] ['name'] ?></p>
+       <p>Price: <?php echo $products ['roue'] ['price'] ?>euros </p> 
+        <p>Weight: <?php echo $products['roue'] ['weight'] ?>grammes </p>
+        <p>Discount: <?php echo $products ['roue']['discount'] ?>%</p>
+       <img src='<?php echo $products ['roue']['picture'] ?> ' />
+    </tr>
+</table>
+
+
 <?php 
     include("footer.php");
     ?>
