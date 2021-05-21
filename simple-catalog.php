@@ -26,6 +26,7 @@ echo "My last product is $last_product";
     <li><?php echo $products[2]?></li>
 </ls>
 
+<p> Affichage des produits avc la boucle While :</p>
 
 <?php 
 
@@ -34,11 +35,56 @@ $index =0;
 while ($index < count($products) ) {
     $product = $products[$index];
     $index += 1;
-    echo "<br/>";
+
     echo "Affichage du produit : " . $product . "<br/>";
 }
 
 ?>
+
+<p> Affichage des produits avec la boucle Do While :</p>
+
+<?php 
+
+$index =0;
+
+do {
+    $product = $products[$index];
+    $index ++;
+    echo "Affichage du produit: " . $product . "<br/>";
+
+} while ($index < count($products) );
+
+
+?>
+
+<p> Affichage des produits avec la boucle For :</p>
+
+<?php 
+
+$i =0;
+
+for($i; $i<count($products); $i++) {
+
+    $product = $products[$i];
+
+    echo "Affichage du produit : " . $product . "<br/>";
+}
+
+?>
+
+<p> Affichage des produits avec la boucle Foreach :</p>
+
+<?php 
+
+foreach($products as $value) {
+    echo "Affichage du produit : " . $value . "<br/>";
+}
+
+?>
+
+
+
+
 
 </body>
 </html>
