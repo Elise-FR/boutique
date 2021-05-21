@@ -133,6 +133,25 @@
 
     </table>
 
+
+    <p> Affichage tableau avec boucle For</p>
+
+    <?php 
+    
+    $keys = array_keys($products);
+    for($i =0; $i <count($products); $i++) {
+
+        echo "Affichage article : " . $keys[$i] . "<br/>";
+
+        foreach($products[$keys[$i]] as $key => $value) {
+
+            echo $key . " : " . $value . "<br/>";
+        }
+    }
+    
+    
+    ?>
+
     <?php
     include("footer.php");
     ?>
