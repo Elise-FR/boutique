@@ -95,22 +95,26 @@
     echo "<br/>"
     ?>
 
-    <p> Affichage tableau avec boucle Foreach : </p>
+    <h3>Affichage tableau avec boucle Foreach : </h3>
 
-    <?php
+    <table>
+    <?php foreach ($products as $key => $value) { ?>
+        
 
-    foreach ($products as $key => $value) {
-
-        echo "Affichage article : " . $key . "<br/>";
-
-        echo "Name: " . $value['name'] . "<br/>" . "Price : " . $value['price'] . "€" . "<br/>" .
-            "Weight : " . $value['weight'] . "g" . "<br/>" . "Discount : " . $value['discount'] . "%" . "<br/>" .
-            "Picture : " . $value['picture'] . "<br/>";
-        echo "<br/>";
-    }
+       <p>Mon Article : <?php echo $key ?> </p>
+       <p>Name : <?php echo $value['name'] ?></p>
+       <p>Price : <?php echo $value['price'] ?> €</p>
+       <p>Weight : <?php echo $value['weight'] ?> g</p>
+       <p>Discount : <?php echo $value['discount'] ?> %</p>
+       <img src = '<?php echo $value['picture'] ?>' />
 
 
-    ?>
+       <?php } ?> 
+
+    </table>
+
+    <?php echo "<br/>" ?>
+
 
     <p> Affichage tableau avec boucle While : </p>
 
@@ -176,9 +180,6 @@
         echo "Discount : " . $products[$keys[$i]]["discount"] . "%" . "<br/>";
         echo "Picture : " . $products[$keys[$i]]["picture"] . "<br/>";
     }
-
-
-
 
     ?>
 
