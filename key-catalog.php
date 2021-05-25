@@ -43,6 +43,7 @@ $stickers = [
 <table>
     <tr>
        <p>Article: <?php echo $roue['name'] ?></p>
+       <p>Price HT: <?php formatprice(priceExcludingVAT($roue ['price'])) ?> </p>
        <p>Price: <?php formatPrice ($roue ['price']) ?></p> 
         <p>Weight: <?php echo $roue ['weight'] ?>grammes </p>
         <p>Discount: <?php echo $roue ['discount'] ?>%</p>
@@ -53,6 +54,7 @@ $stickers = [
 <table>
     <tr>
        <p>Article: <?php echo $planche['name'] ?></p>
+       <p>Price HT: <?php formatprice(priceExcludingVAT($planche ['price'])) ?> </p>
        <p>Price: <?php formatPrice($planche ['price']) ?></p> 
         <p>Weight: <?php echo $planche ['weight'] ?>grammes </p>
         <p>Discount: <?php echo $planche ['discount'] ?>%</p>
@@ -63,6 +65,7 @@ $stickers = [
 <table>
     <tr>
        <p>Article: <?php echo $stickers['name'] ?></p>
+       <p>Price HT: <?php formatprice(priceExcludingVAT($stickers ['price'])) ?> </p>
        <p>Price: <?php formatPrice ($stickers ['price']) ?></p> 
         <p>Weight: <?php echo $stickers ['weight'] ?>grammes </p>
         <p>Discount: <?php echo $stickers ['discount'] ?>%</p>
