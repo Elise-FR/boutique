@@ -135,6 +135,33 @@
 
     ?>
 
+    <p> Affichage tableau avec boucle Do While : </p>
+
+    <?php
+
+    
+    $keys = array_keys($products);
+    $index = 0;
+
+    do {
+        echo "<br/>";
+
+        echo "Affichage article : " . $keys[$index] . "<br/>";
+        echo "Name : " . $products[$keys[$index]]["name"] . "<br/>";
+        echo "Price : " . $products[$keys[$index]]["price"] . "<br/>";
+        echo "Weight : " . $products[$keys[$index]]["weight"] . "<br/>";
+        echo "Discount : " . $products[$keys[$index]]["discount"] . "<br/>";
+        echo "Picture : " . $products[$keys[$index]]["picture"] . "<br/>";
+        $index++;
+        
+    }
+    
+    while ($index < count($products));
+
+
+
+    ?>
+
     <?php
     include("footer.php");
     ?>
