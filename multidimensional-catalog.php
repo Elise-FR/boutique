@@ -77,79 +77,62 @@
     </table>
 
 
+    <p> Affichage tableau avec boucle For : </p>
 
-    <table class="table">
+    <?php
 
-        <?php
-
-        $index = 0;
-
-        while ($index < count($products)) {
-
-            $tableau_index = array_keys($products);
-            $affichage = $tableau_index[$index];
-        ?>
-            <tr>
-                <?php
-
-                $index2 = 0;
-
-                while ($index2 < count($products[$affichage])) {
-
-                    $tableau_index2 = array_values($products[$affichage]);
-                    $affichage2 = $tableau_index2[$index2];
-
-
-                    $tableau_index3 = array_keys($products[$affichage]);
-                    $caracteristiques = $tableau_index3[$index2];
-                ?>
-                    <td>
-
-
-
-                        <?php if ($caracteristiques == "picture") {
-                        ?>
-
-                            <img src="<?php echo $affichage2 ?>">
-                        <?php
-
-                            $index2 += 1;
-
-                            continue;
-                        }
-
-                        echo $caracteristiques . " : " . $affichage2 ?>
-                    </td>
-                <?php $index2 += 1;
-                }
-
-                ?>
-
-            </tr>
-        <?php
-            $index += 1;
-        }
-        ?>
-
-    </table>
-
-
-    <p> Affichage tableau avec boucle For</p>
-
-    <?php 
-    
     $keys = array_keys($products);
-    for($i =0; $i <count($products); $i++) {
+    for ($i = 0; $i < count($products); $i++) {
 
         echo "Affichage article : " . $keys[$i] . "<br/>";
 
-        foreach($products[$keys[$i]] as $key => $value) {
+        foreach ($products[$keys[$i]] as $key => $value) {
 
             echo $key . " : " . $value . "<br/>";
         }
     }
-    
-    
+
+    echo "<br/>"
+    ?>
+
+    <p> Affichage tableau avec boucle Foreach : </p>
+
+    <?php
+
+    foreach ($products as $key => $value) {
+
+        echo "Affichage article : " . $key . "<br/>";
+
+        echo "Name: " . $value['name'] . "<br/>" . "Price : " . $value['price'] . "€" . "<br/>" .
+            "Weight : " . $value['weight'] . "g" . "<br/>" . "Discount : " . $value['discount'] . "%" . "<br/>" .
+            "Picture : " . $value['picture'] . "<br/>";
+        echo "<br/>";
+    }
+
+
+    ?>
+
+    <p> Affichage tableau avec boucle While : </p>
+
+    <?php
+
+    $keys = array_keys($products);
+    $i = 0;
+
+    while ($i < count($products)) {
+
+        echo "<br/>";
+
+        echo "Affichage article : " . $keys[$i] . "<br/>";
+        echo "Name : " . $products[$keys[$i]]["name"] . "<br/>";
+        echo "Price : " . $products[$keys[$i]]["price"] . "<br/>";
+        echo "Weight : " . $products[$keys[$i]]["weight"] . "<br/>";
+        echo "Discount : " . $products[$keys[$i]]["discount"] . "<br/>";
+        echo "Picture : " . $products[$keys[$i]]["picture"] . "<br/>";
+        $i = $i + 1;
+    }
+
+
     ?>
 
     <?php
