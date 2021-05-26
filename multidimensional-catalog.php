@@ -52,6 +52,7 @@ include("my-functions.php");
             <p>Article: <?php echo $products['roue']['name'] ?></p>
             <p>Price HT : <?php formatPrice(priceExcludingVAT(($products ['roue']['price']))) ?></p>
             <p>Price TTC : <?php formatPrice($products ['roue']['price']) ?></p>
+            <p>Prix remisé: <?php formatPrice(displayDiscountedPrice ($products ['roue'] ['price'] ,$products ['roue'] ['discount']))?> </p>
             <p>Weight: <?php echo $products['roue']['weight'] ?>g </p>
             <p>Discount: <?php echo $products['roue']['discount'] ?>%</p>
             <img src='<?php echo $products['roue']['picture'] ?> ' />
@@ -63,6 +64,7 @@ include("my-functions.php");
             <p>Article: <?php echo $products['planche']['name'] ?></p>
             <p>Price HT : <?php formatPrice(priceExcludingVAT(($products ['planche']['price']))) ?></p>
             <p>Price TTC : <?php formatPrice($products['planche']['price']) ?></p>
+            <p>Prix remisé: <?php formatPrice(displayDiscountedPrice ($products ['planche'] ['price'] ,$products ['planche'] ['discount']))?> </p>
             <p>Weight: <?php echo $products['planche']['weight'] ?>g </p>
             <p>Discount: <?php echo $products['planche']['discount'] ?>%</p>
             <img src='<?php echo $products['planche']['picture'] ?> ' />
@@ -74,6 +76,7 @@ include("my-functions.php");
             <p>Article: <?php echo $products['stickers']['name'] ?></p>
             <p>Price HT : <?php formatPrice(priceExcludingVAT(($products ['stickers']['price']))) ?></p>
             <p>Price TTC: <?php formatPrice($products['stickers']['price']) ?></p>
+            <p>Prix remisé: <?php formatPrice(displayDiscountedPrice ($products ['stickers'] ['price'] ,$products ['stickers'] ['discount']))?> </p>
             <p>Weight: <?php echo $products['stickers']['weight'] ?>g </p>
             <p>Discount: <?php echo $products['stickers']['discount'] ?>%</p>
             <img src='<?php echo $products['stickers']['picture'] ?> ' />
@@ -111,6 +114,7 @@ include("my-functions.php");
             <p>Name : <?php echo $value['name'] ?></p>
             <p>Price HT : <?php formatPrice(priceExcludingVAT(($value ['price']))) ?></p>
             <p>Price TTC : <?php formatPrice($value['price']) ?></p>
+            <p>Prix remisé: <?php formatPrice(displayDiscountedPrice ($value ['price'], $value ['discount']))?> </p>
             <p>Weight : <?php echo $value['weight'] ?> g</p>
             <p>Discount : <?php echo $value['discount'] ?> %</p>
             <img src='<?php echo $value['picture'] ?>' />

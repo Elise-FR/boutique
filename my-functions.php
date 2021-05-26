@@ -18,6 +18,18 @@ echo number_format($price, 2) . "€";
 
 
     }
+
+
+    function displayDiscountedPrice ($price_ttc, $discount) {
+
+    
+        $montant_remise = $price_ttc*$discount/100;
+
+        return $price_ttc - $montant_remise;
+
+       
+
+    }
     
     
     
