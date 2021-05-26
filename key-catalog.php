@@ -40,7 +40,7 @@ $stickers = [
 
 <table>
     <tr>
-       <p>gitArticle: <?php echo $roue['name'] ?></p>
+       <p>Article: <?php echo $roue['name'] ?></p>
        <p>Price: <?php echo $roue ['price'] ?>euros </p> 
         <p>Weight: <?php echo $roue ['weight'] ?>grammes </p>
         <p>Discount: <?php echo $roue ['discount'] ?>%</p>
@@ -72,3 +72,4 @@ include("footer.php");
 ?>
     </body>
 </html>
+
