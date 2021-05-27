@@ -93,8 +93,6 @@
         <?php foreach ($products as $key => $value) { ?>
 
 
-            <p>Clé de l'article : <?php echo $key ?> </p>
-
             <tr>
                 <th> Name </th>
                 <th> Price HT </th>
@@ -112,12 +110,13 @@
                 <td><?php formatPrice(displayDiscountedPrice($value['price'], $value['discount'])) ?> </td>
                 <td><?php echo $value['weight'] ?> g</td>
                 <td><img src='<?php echo $value['picture'] ?>' alt="produit" width="100" ; /></td>
-                <td> <form method="post" action="cart.php"> <select name="choix du produit">
-                    <option value="choix0">Choix quantité</option>
-                    <option value="choix1">1</option>
-                    <option value="choix2">2</option>
-                    <option value="choix3">3</option>
+                <td> <form method="post" action="cart.php"> <select name="choix">
+                    <option value="0">Choix quantité </option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                 </select>
+                <td><input type="submit" class="btn btn-primary" id="envoyer" name="envoyer" value="commander"></td>
             </form>
 </td>
             </tr>
