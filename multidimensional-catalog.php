@@ -104,16 +104,20 @@
 
             </tr>
                 <td><?php echo $value['name'] ?></td>
-                <td><?php formatPrice(priceExcludingVAT(($value['price']))) ?></td>
-                <td><?php formatPrice($value['price']) ?></td>
+                <td><?php echo formatPrice(priceExcludingVAT(($value['price']))) ?></td>
+                <td><?php echo formatPrice($value['price']) ?></td>
                 <td><?php echo $value['discount'] ?> %</td>
-                <td><?php formatPrice(displayDiscountedPrice($value['price'], $value['discount'])) ?> </td>
+                <td><?php echo formatPrice(displayDiscountedPrice($value['price'], $value['discount'])) ?> </td>
                 <td><?php echo $value['weight'] ?> g</td>
                 <td><img src='<?php echo $value['picture'] ?>' alt="produit" width="100" ; /></td>
                 <td> <form method="post" action="cart.php"> <input type="number" name="choice" min="0">
                 <td><input type="submit" class="btn btn-primary" id="envoyer" name="envoyer" value="commander"></td> 
-                <input type="hidden" name="name" value = "" />
-                <input type="hidden" name ="price" />
+                <input type="hidden" name="name" value ="<?php echo $value['name'] ?>" />
+                <input type="hidden" name ="price" value ="<?php echo formatPrice($value['price'])?>" />
+                <input type="hidden" name ="price_d" value =" <?php echo formatPrice(displayDiscountedPrice($value['price'], $value['discount'])) ?>" />
+                <input type="hidden" name ="TVA" value ="<?php ?>" />
+                
+                
                 
             </form>
 </td>
