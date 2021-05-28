@@ -9,8 +9,8 @@
 <body>
 
     <?php
-include("header.php");
-include("my-functions.php");
+    include("header.php");
+    include("my-functions.php");
     ?>
 
 
@@ -50,51 +50,40 @@ include("my-functions.php");
     <table>
         <tr>
             <p>Article: <?php echo $products['roue']['name'] ?></p>
-            <p>Price: <?php formatPrice($products ['roue']['price']) ?></p>
+            <p>Price HT : <?php formatPrice(priceExcludingVAT(($products['roue']['price']))) ?></p>
+            <p>Price TTC : <?php formatPrice($products['roue']['price']) ?></p>
+            <p>Prix remisé: <?php formatPrice(displayDiscountedPrice($products['roue']['price'], $products['roue']['discount'])) ?> </p>
             <p>Weight: <?php echo $products['roue']['weight'] ?>g </p>
             <p>Discount: <?php echo $products['roue']['discount'] ?>%</p>
-            <img src='<?php echo $products['roue']['picture'] ?> ' />
+            <img src='<?php echo $products['roue']['picture'] ?> ' alt="Roues" width="300" ; />
         </tr>
     </table>
 
     <table>
         <tr>
             <p>Article: <?php echo $products['planche']['name'] ?></p>
-            <p>Price: <?php formatPrice($products['planche']['price']) ?></p>
+            <p>Price HT : <?php formatPrice(priceExcludingVAT(($products['planche']['price']))) ?></p>
+            <p>Price TTC : <?php formatPrice($products['planche']['price']) ?></p>
+            <p>Prix remisé: <?php formatPrice(displayDiscountedPrice($products['planche']['price'], $products['planche']['discount'])) ?> </p>
             <p>Weight: <?php echo $products['planche']['weight'] ?>g </p>
             <p>Discount: <?php echo $products['planche']['discount'] ?>%</p>
-            <img src='<?php echo $products['planche']['picture'] ?> ' />
+            <img src='<?php echo $products['planche']['picture'] ?> ' alt="longboard" width="300" ; />
         </tr>
     </table>
 
     <table>
         <tr>
             <p>Article: <?php echo $products['stickers']['name'] ?></p>
-            <p>Price: <?php formatPrice($products['stickers']['price']) ?></p>
+            <p>Price HT : <?php formatPrice(priceExcludingVAT(($products['stickers']['price']))) ?></p>
+            <p>Price TTC: <?php formatPrice($products['stickers']['price']) ?></p>
+            <p>Prix remisé: <?php formatPrice(displayDiscountedPrice($products['stickers']['price'], $products['stickers']['discount'])) ?> </p>
             <p>Weight: <?php echo $products['stickers']['weight'] ?>g </p>
             <p>Discount: <?php echo $products['stickers']['discount'] ?>%</p>
-            <img src='<?php echo $products['stickers']['picture'] ?> ' />
+            <img src='<?php echo $products['stickers']['picture'] ?> ' alt="Stickers" width="300" ; />
         </tr>
     </table>
 
 
-    <h3> Affichage tableau avec boucle For : </h3>
-
-    <?php
-
-    $keys = array_keys($products);
-    for ($i = 0; $i < count($products); $i++) {
-
-        echo "Affichage article : " . $keys[$i] . "<br/>";
-
-        foreach ($products[$keys[$i]] as $key => $value) {
-
-            echo $key . " : " . $value . "<br/>";
-        }
-    }
-
-    echo "<br/>"
-    ?>
 
     <h1>Affichage tableau avec boucle Foreach : </h1>
 
@@ -104,13 +93,33 @@ include("my-functions.php");
         <?php foreach ($products as $key => $value) { ?>
 
 
-            <p>Clé de l'article : <?php echo $key ?> </p>
-            <p>Name : <?php echo $value['name'] ?></p>
-            <p>Price : <?php formatPrice($value['price']) ?></p>
-            <p>Weight : <?php echo $value['weight'] ?> g</p>
-            <p>Discount : <?php echo $value['discount'] ?> %</p>
-            <img src='<?php echo $value['picture'] ?>' />
+            <tr>
+                <th> Name </th>
+                <th> Price HT </th>
+                <th> Price TTC </th>
+                <th> Discount </th>
+                <th> Discount price </th>
+                <th> Weight </th>
+                <th> image </th>
 
+            </tr>
+                <td><?php echo $value['name'] ?></td>
+                <td><?php formatPrice(priceExcludingVAT(($value['price']))) ?></td>
+                <td><?php formatPrice($value['price']) ?></td>
+                <td><?php echo $value['discount'] ?> %</td>
+                <td><?php formatPrice(displayDiscountedPrice($value['price'], $value['discount'])) ?> </td>
+                <td><?php echo $value['weight'] ?> g</td>
+                <td><img src='<?php echo $value['picture'] ?>' alt="produit" width="100" ; /></td>
+                <td> <form method="post" action="cart.php"> <input type="number" name="choice" min="0">
+                <td><input type="submit" class="btn btn-primary" id="envoyer" name="envoyer" value="commander"></td> 
+                <input type="hidden" name="name" value = "" />
+                <input type="hidden" name ="price" />
+                
+            </form>
+</td>
+            </tr>
+            
+            
 
         <?php } ?>
 
@@ -119,72 +128,10 @@ include("my-functions.php");
     <?php echo "<br/>" ?>
 
 
-    <h3> Affichage tableau avec boucle While : </h3>
-
-    <?php
-
-    $keys = array_keys($products);
-    $i = 0;
-
-    while ($i < count($products)) {
-
-        echo "<br/>";
-
-        echo "Affichage article : " . $keys[$i] . "<br/>";
-        echo "Name : " . $products[$keys[$i]]["name"] . "<br/>";
-        echo "Price : " . $products[$keys[$i]]["price"] . "€" . "<br/>";
-        echo "Weight : " . $products[$keys[$i]]["weight"] . "g" . "<br/>";
-        echo "Discount : " . $products[$keys[$i]]["discount"] . "%" . "<br/>";
-        echo "Picture : " . $products[$keys[$i]]["picture"] . "<br/>";
-        $i = $i + 1;
-    }
 
 
-    ?>
-
-    <h3> Affichage tableau avec boucle Do While : </h3>
-
-    <?php
 
 
-    $keys = array_keys($products);
-    $index = 0;
-
-    do {
-        echo "<br/>";
-
-        echo "Affichage article : " . $keys[$index] . "<br/>";
-        echo "Name : " . $products[$keys[$index]]["name"] . "<br/>";
-        echo "Price : " . $products[$keys[$index]]["price"] . "€" . "<br/>";
-        echo "Weight : " . $products[$keys[$index]]["weight"] . "g" . "<br/>";
-        echo "Discount : " . $products[$keys[$index]]["discount"] . "%" . "<br/>";
-        echo "Picture : " . $products[$keys[$index]]["picture"] . "<br/>";
-        $index++;
-    } while ($index < count($products));
-
-    echo "<br/>";
-
-    ?>
-
-    <h3> Affichage tableau avec boucle For sans foreach : </h3>
-
-    <?php
-    $keys = array_keys($products);
-    $i = 0;
-
-    for ($i; $i < count($products); $i++) {
-
-        echo "<br/>";
-
-        echo "Affichage article : " . $keys[$i] . "<br/>";
-        echo "Name : " . $products[$keys[$i]]["name"] . "<br/>";
-        echo "Price : " . $products[$keys[$i]]["price"] . "€" .  "<br/>";
-        echo "Weight : " . $products[$keys[$i]]["weight"] . "g" . "<br/>";
-        echo "Discount : " . $products[$keys[$i]]["discount"] . "%" . "<br/>";
-        echo "Picture : " . $products[$keys[$i]]["picture"] . "<br/>";
-    }
-
-    ?>
 
     <?php
     include("footer.php");

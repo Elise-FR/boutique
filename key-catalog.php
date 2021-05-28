@@ -43,8 +43,9 @@ $stickers = [
 <table>
     <tr>
        <p>Article: <?php echo $roue['name'] ?></p>
-       <p>Price HT: <?php formatprice(priceExcludingVAT($roue ['price'])) ?> </p>
-       <p>Price: <?php formatPrice ($roue ['price']) ?></p> 
+       <p>Price HT : <?php formatPrice(priceExcludingVAT($roue ['price']))?> </p>
+       <p>Price TTC: <?php formatPrice ($roue ['price']) ?></p> 
+       <p>Prix remisé: <?php formatPrice(displayDiscountedPrice ($roue ['price'], $roue ['discount']))?> </p>
         <p>Weight: <?php echo $roue ['weight'] ?>grammes </p>
         <p>Discount: <?php echo $roue ['discount'] ?>%</p>
        <img src='<?php echo $roue ['picture'] ?> ' />
@@ -54,8 +55,9 @@ $stickers = [
 <table>
     <tr>
        <p>Article: <?php echo $planche['name'] ?></p>
-       <p>Price HT: <?php formatprice(priceExcludingVAT($planche ['price'])) ?> </p>
-       <p>Price: <?php formatPrice($planche ['price']) ?></p> 
+       <p>Price HT: <?php formatPrice(priceExcludingVAT($planche['price']))?> </p>
+       <p>Price TTC: <?php formatPrice($planche ['price']) ?></p>
+       <p>Prix remisé: <?php formatPrice(displayDiscountedPrice ($planche ['price'], $planche ['discount']))?> </p>
         <p>Weight: <?php echo $planche ['weight'] ?>grammes </p>
         <p>Discount: <?php echo $planche ['discount'] ?>%</p>
      <img src='<?php echo $planche ['picture'] ?> ' />
@@ -65,8 +67,9 @@ $stickers = [
 <table>
     <tr>
        <p>Article: <?php echo $stickers['name'] ?></p>
-       <p>Price HT: <?php formatprice(priceExcludingVAT($stickers ['price'])) ?> </p>
-       <p>Price: <?php formatPrice ($stickers ['price']) ?></p> 
+       <p>Price HT : <?php formatPrice(priceExcludingVAT($stickers['price']))?> </p>
+       <p>Price TTC : <?php formatPrice ($stickers ['price']) ?></p> 
+       <p>Prix remisé: <?php formatPrice(displayDiscountedPrice ($stickers ['price'], $stickers ['discount']))?> </p>
         <p>Weight: <?php echo $stickers ['weight'] ?>grammes </p>
         <p>Discount: <?php echo $stickers ['discount'] ?>%</p>
         <img src='<?php echo $stickers ['picture'] ?> ' />
