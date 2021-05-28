@@ -47,7 +47,7 @@
 
     ?>
 
-    <table>
+    <table class = "table table-hover">
         <tr>
             <p>Article: <?php echo $products['roue']['name'] ?></p>
             <p>Price HT : <?php formatPrice(priceExcludingVAT(($products['roue']['price']))) ?></p>
@@ -59,7 +59,7 @@
         </tr>
     </table>
 
-    <table>
+    <table class = "table table-hover">
         <tr>
             <p>Article: <?php echo $products['planche']['name'] ?></p>
             <p>Price HT : <?php formatPrice(priceExcludingVAT(($products['planche']['price']))) ?></p>
@@ -71,7 +71,7 @@
         </tr>
     </table>
 
-    <table>
+    <table class = "table table-hover">
         <tr>
             <p>Article: <?php echo $products['stickers']['name'] ?></p>
             <p>Price HT : <?php formatPrice(priceExcludingVAT(($products['stickers']['price']))) ?></p>
@@ -87,7 +87,7 @@
 
     <h1>Affichage tableau avec boucle Foreach : </h1>
 
-    <table>
+    <table class = "table table-hover">
 
 
         <?php foreach ($products as $key => $value) { ?>
@@ -101,6 +101,9 @@
                 <th> Discount price </th>
                 <th> Weight </th>
                 <th> image </th>
+
+
+           
 
             </tr>
                 <td><?php echo $value['name'] ?></td>
@@ -130,11 +133,6 @@
     </table>
 
     <?php echo "<br/>" ?>
-
-
-
-
-
 
 
     <?php

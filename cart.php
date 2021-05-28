@@ -1,22 +1,53 @@
-<?php include ("my-functions.php") ?>
+<html>
+
+<head>
+
+<?php include("header.php"); ?>
+
+</head>
+
+
+<?php include("my-functions.php") ?>
 
 <?php
 
-$prixtotalttc = $_POST["price"]*$_POST["choice"];
+$prixtotalttc = $_POST["price"] * $_POST["choice"];
 $prixtotalht = priceExcludingVAT($prixtotalttc);
 $tva = $prixtotalttc - $prixtotalht;
 
-echo "le nom du produit : " . $_POST["name"] . "<br>";
-echo "le Prix du produit unitaire TTC :" . $_POST["price"] . "€" . "<br>";
-echo "le Prix remisé est de : ". $_POST["price_d"] . "€" . "<br>";
-echo "la quantité demandée est de : " . $_POST["choice"] . "<br>";
-echo "Total HT : " . $prixtotalht. "€". "<br>";
-echo "Valeur de la TVA : " . $tva . "€" . "<br>";
-echo "Total TTC: " .  $prixtotalttc . "€". "<br>" ;
-        
-
-
-//var_dump($_POST);
-
-
 ?>
+
+<table class = "table table-hover">
+
+    <tr>
+
+        <th>Nom du produit</th>
+        <th>Prix du produit unitaire TTC</th>
+        <th>Prix remisé TTC</th>
+        <th>Quantité</th>
+        <th>Total HT</th>
+        <th>Valeur TVA</th>
+        <th>Total TTC</th>
+
+    </tr>
+
+
+    <td> <?php echo $_POST["name"] ?></td>
+    <td><?php echo $_POST["price"] . "€" ?></td>
+    <td><?php echo $_POST["price_d"] . "€" ?></td>
+    <td><?php echo $_POST["choice"] ?></td>
+    <td><?php echo $prixtotalht . "€" ?> </td>
+    <td><?php echo $tva . "€" ?> </td>
+    <td><?php echo $prixtotalttc . "€" ?> </td>
+
+
+
+</table>
+
+<?php
+    include("footer.php");
+    ?>
+
+</body>
+
+</html>
