@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Lien Bootsrap-->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+
+    <!--Lien mon CSS-->
+
+    <link rel="stylesheet" href="style_formulaire.css" />
+
+    <title>Formulaire Bootstrap</title>
+  </head>
+  <body>
+    <!--Début HTML Bandeau-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a
+          class="navbar-brand"
+          href="https://www.youtube.com/watch?v=ZyhrYis509A"
+        >
+          <img src="photo/logo silent.jpg" alt="Logo silent"
+        /></a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://discord.gg/DK4GGbfV"
+                >Dashboard</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Menu
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="index.html#features"
+                    >FEATURES</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="index.html#partenaires"
+                    >PARTENAIRES</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="index.html#succes">SUCCES</a>
+                </li>
+                <li><a class="dropdown-item" href="Team-BS.html">TEAM</a></li>
+                <li>
+                  <a class="dropdown-item" href="catalogue.html">CATALOGUE</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="Formulaire_2.html">NOUS CONTACTER</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link disabled"
+                href="#"
+                tabindex="-1"
+                aria-disabled="true"
+                >Disabled</a
+              >
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!--Fin HTML Bandeau-->
+
+    <!--Début HTML Formulaire-->
+
+    <div class="container-fluid">
+      <div class="container" id="bottom">
+        <div class="row justify-content-md-center">
+          <div class="col-md-auto text-center">Formulaire de contact</div>
+        </div>
+      </div>
+
+      <!--Texte de présentation-->
+      <div class="container" id="intro">
+        <div class="row">
+          <div class="col-md-auto text-center">
+            <span class="ligne1">On aime vous entendre.</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-auto text-center">
+            <span class="ligne2"
+              >Nous restons à votre dispositon 24h/24, 7j/7.</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!--Formulaire-->
+      <div class="container" id="contenu">
+        <form  class ="f-contact" action="https://httpbin.org/get" method="GET">
+          <div class="mb-3">
+            <label for="exempleprenom" class="form-label">Prénom</label>
+            <input
+              type="text"
+              class="form-control"
+              id="prenom"
+              placeholder="Prénom"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exemplenom" class="form-label">Nom</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nom"
+              placeholder="Nom"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exemplemail" class="form-label">Adresse mail</label>
+            <input
+              type="email"
+              class="form-control"
+              id="exemplemail"
+              placeholder="name@example.com"
+            />
+          </div>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Objet de la demande</option>
+            <option value="renouvellement">Renouvellement abonnement</option>
+            <option value="prix">Prix d'un abonnement</option>
+            <option value="membre">Comment devenir membre?</option>
+            <option value="résilier">Je souhaitez résilier mon contrat</option>
+            <option value="offre">Je veux élargir mon offre</option>
+          </select>
+
+          <div class="mb-3">
+            <label for="exempletextarea1" class="form-label">Autres</label>
+            <textarea
+              class="form-control"
+              id="exempletextarea1"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="envoyer">
+            <button type="button submit" value="Envoyer" class="btn" id="btn-e">
+              Envoyer
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--Fin HTML Formulaire-->
+
+    <!--Début HTML Footer-->
+    <footer class="footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 text-center" ><a href="#" id="footerfaq">FAQ</a> </div>
+
+          <div class="row">
+            <div class="col-12 text-center" ><a href="Formulaire_2.html" id="footercontact">CONTACT</a> </div>
+          </div>
+        </div>
+
+        <!-- Ligne de 12 colonnes -->
+        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3" id="reseaux">
+          <!-- 1/3 de la largeur (largeur de 4 colonnes)-->
+          <div class="silent col">
+            <a href="index.html">
+              <img src="photo/logo silent.jpg" alt="Logo silent"
+            /></a>
+            SILENT
+          </div>
+
+          <!-- 1/3 de la largeur (largeur de 4 colonnes)-->
+          <div class="col">
+            <div class="reseau">
+              <a href="https://www.facebook.com/RickAstley">
+                <img src="photo/facebook_1.png" alt="Logo facebook"
+              /></a>
+
+              <a href="https://www.instagram.com/silent_fnf/">
+                <img src="photo/insta_1.png" alt="Logo instagram"
+              /></a>
+
+              <a href="https://twitter.com/Silent_Fnf"
+                ><img src="photo/twitter_1.png" alt="Logo twitter"
+              /></a>
+            </div>
+          </div>
+
+          <!-- 1/3 de la largeur (largeur de 4 colonnes)-->
+          <div class="col">
+            <div class="campus">
+              <a href="https://le-campus-numerique.fr/">
+                <img
+                  src="photo/logo_campus_header_1.png"
+                  alt="Logo campus numerique"
+                  class="logo-campus"
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="texte">
+            <div class="col-12 text-center text-muted">
+              Site by Silent Corps <br />
+              Copyright © 2020, Silent<br />
+              Terms & Conditions - Privacy - Legal Notice
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--Fin HTML Footer-->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
