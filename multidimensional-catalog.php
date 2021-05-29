@@ -114,7 +114,7 @@
             <td><?php echo $value['weight'] ?> g</td>
             <td><img src='<?php echo $value['picture'] ?>' alt="produit" width="100" ; /></td>
             <td>
-                <form method="post" action="cart.php"> <input type="number" name="choice" min="0" placeholder="0">
+                <form method="post" action="cart.php"> <input type="number" name="quantite" min="0" placeholder="0">
             <td><select type="text" name="transporteur">
                     <option value="choix du transporteur">Je choisis mon transporteur</option>
                     <option value="La Poste">La Poste</option>
@@ -124,7 +124,7 @@
             <input type="hidden" name="name" value="<?php echo $value['name'] ?>" />
             <input type="hidden" name="price" value="<?php echo formatPrice($value['price']) ?>" />
             <input type="hidden" name="price_d" value=" <?php echo formatPrice(displayDiscountedPrice($value['price'], $value['discount'])) ?>" />
-            <input type="hidden" name="TVA" value="<?php ?>" />
+            <input type="hidden" name="weight" value="<?php echo $value['weight'] ?>" />
 
 
 
