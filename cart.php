@@ -11,7 +11,7 @@
 
 <?php
 
-$prixtotalttc = $_POST["price"] * $_POST["choice"];
+$prixtotalttc = $_POST["price_d"] * $_POST["choice"];
 $prixtotalht = priceExcludingVAT($prixtotalttc);
 $tva = $prixtotalttc - $prixtotalht;
 

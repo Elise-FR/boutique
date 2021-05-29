@@ -26,7 +26,7 @@ echo "My last product is $last_product";
     <li><?php echo $products[2]?></li>
 </ls>
 
-<p> Affichage des produits avc la boucle While :</p>
+<p> Affichage des produits avec la boucle While :</p>
 
 <?php 
 
@@ -35,7 +35,6 @@ $index =0;
 while ($index < count($products) ) {
     $product = $products[$index];
     $index += 1;
-
     echo "Affichage du produit : " . $product . "<br/>";
 }
 
