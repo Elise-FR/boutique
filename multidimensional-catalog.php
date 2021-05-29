@@ -47,7 +47,7 @@
 
     ?>
 
-    <table class = "table table-hover">
+    <table class="table table-hover">
         <tr>
             <p>Article: <?php echo $products['roue']['name'] ?></p>
             <p>Price HT : <?php formatPrice(priceExcludingVAT(($products['roue']['price']))) ?></p>
@@ -59,7 +59,7 @@
         </tr>
     </table>
 
-    <table class = "table table-hover">
+    <table class="table table-hover">
         <tr>
             <p>Article: <?php echo $products['planche']['name'] ?></p>
             <p>Price HT : <?php formatPrice(priceExcludingVAT(($products['planche']['price']))) ?></p>
@@ -71,7 +71,7 @@
         </tr>
     </table>
 
-    <table class = "table table-hover">
+    <table class="table table-hover">
         <tr>
             <p>Article: <?php echo $products['stickers']['name'] ?></p>
             <p>Price HT : <?php formatPrice(priceExcludingVAT(($products['stickers']['price']))) ?></p>
@@ -87,7 +87,7 @@
 
     <h1>Affichage tableau avec boucle Foreach : </h1>
 
-    <table class = "table table-hover">
+    <table class="table table-hover">
 
 
         <?php foreach ($products as $key => $value) { ?>
@@ -103,30 +103,36 @@
                 <th> image </th>
 
 
-           
+
 
             </tr>
-                <td><?php echo $value['name'] ?></td>
-                <td><?php echo formatPrice(priceExcludingVAT(($value['price']))) ?></td>
-                <td><?php echo formatPrice($value['price']) ?></td>
-                <td><?php echo $value['discount'] ?> %</td>
-                <td><?php echo formatPrice(displayDiscountedPrice($value['price'], $value['discount'])) ?> </td>
-                <td><?php echo $value['weight'] ?> g</td>
-                <td><img src='<?php echo $value['picture'] ?>' alt="produit" width="100" ; /></td>
-                <td> <form method="post" action="cart.php"> <input type="number" name="choice" min="0" placeholder="0">
-                <td><input type="submit" class="btn btn-primary" id="envoyer" name="envoyer" value="commander"></td> 
-                <input type="hidden" name="name" value ="<?php echo $value['name'] ?>" />
-                <input type="hidden" name ="price" value ="<?php echo formatPrice($value['price'])?>" />
-                <input type="hidden" name ="price_d" value =" <?php echo formatPrice(displayDiscountedPrice($value['price'], $value['discount'])) ?>" />
-                <input type="hidden" name ="TVA" value ="<?php ?>" />
-                
-                
-                
+            <td><?php echo $value['name'] ?></td>
+            <td><?php echo formatPrice(priceExcludingVAT(($value['price']))) ?></td>
+            <td><?php echo formatPrice($value['price']) ?></td>
+            <td><?php echo $value['discount'] ?> %</td>
+            <td><?php echo formatPrice(displayDiscountedPrice($value['price'], $value['discount'])) ?> </td>
+            <td><?php echo $value['weight'] ?> g</td>
+            <td><img src='<?php echo $value['picture'] ?>' alt="produit" width="100" ; /></td>
+            <td>
+                <form method="post" action="cart.php"> <input type="number" name="choice" min="0" placeholder="0">
+            <td><select type="text" name="transporteur">
+                    <option value="choix du transporteur">Je choisis mon transporteur</option>
+                    <option value="La Poste">La Poste</option>
+                    <option value="Geodis">Géodis</option>
+                </select>
+            <td><input type="submit" class="btn btn-primary" id="envoyer" name="envoyer" value="commander"></td>
+            <input type="hidden" name="name" value="<?php echo $value['name'] ?>" />
+            <input type="hidden" name="price" value="<?php echo formatPrice($value['price']) ?>" />
+            <input type="hidden" name="price_d" value=" <?php echo formatPrice(displayDiscountedPrice($value['price'], $value['discount'])) ?>" />
+            <input type="hidden" name="TVA" value="<?php ?>" />
+
+
+
             </form>
-</td>
+            </td>
             </tr>
-            
-            
+
+
 
         <?php } ?>
 
