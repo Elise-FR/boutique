@@ -10,9 +10,17 @@
 <?php include("my-functions.php");
 include("products.php"); ?>
 
+<?php 
+
+$pricediscount = displayDiscountedPrice($products[$_POST['allproducts']]['price'],$products[$_POST['allproducts']]['discount']);
+$prixtotalttc = $pricediscount * $_POST["quantite"];
+
+
+?>
+
 <?php
 
-$prixtotalttc = (int) $_POST["price_d"] * (int) $_POST["quantite"];
+$prixtotalttc = $pricediscount* $_POST["quantite"];
 $prixtotalht = priceExcludingVAT($prixtotalttc);
 $tva = $prixtotalttc - $prixtotalht;
 $weightcolis = $_POST['weight'] * $_POST["quantite"];
@@ -36,9 +44,9 @@ $total_fp = $prixtotalttc + fraisDePort($weightcolis, $prixtotalttc);
 
     </tr>
 
-    <td> <?php echo $_POST['name'] ?></td>
-    <td><?php echo $_POST["price"] . "€" ?></td>
-    <td><?php echo $_POST["price_d"] . "€" ?></td>
+    <td> <?php echo $products[$_POST["allproducts"]]['name'] ?></td>
+    <td><?php echo $products [$_POST["allproducts"]]['price'] . "€" ?></td>
+    <td><?php echo $pricediscount . "€" ?></td>
     <td><?php echo $_POST["quantite"] ?></td>
     <td><?php echo $weightcolis . "g" ?></td>
     <td><?php echo $prixtotalht . "€" ?> </td>
@@ -63,10 +71,10 @@ $total_fp = $prixtotalttc + fraisDePort($weightcolis, $prixtotalttc);
                 <option value="">Je choisis mon transporteur</option>
                 <option value="0">La Poste</option>
                 <option value="1">Géodis</option>
-                <input type="hidden" name="name" value="<?php echo $_POST['name'] ?>" />
-                <input type="hidden" name="price" value="<?php echo formatPrice($_POST['price']) ?>" />
+                <input type="hidden" name="name" value="<?php echo $products[$_POST["allproducts"]]['name'] ?>" />
+                <input type="hidden" name="price" value="<?php echo formatPrice($products[$_POST["allproducts"]]['price']) ?>" />
                 <input type="hidden" name="price_d" value="<?php echo $_POST["price_d"] ?>" />
-                <input type="hidden" name="weight" value="<?php echo $_POST['weight'] ?>" />
+                <input type="hidden" name="weight" value="<?php echo $products[$_POST["allproducts"]]['weight']?>" />
                 <input type="hidden" name="quantite" value=" <?php echo $_POST["quantite"] ?>" />
                 <input type="submit" class="btn btn-primary" id="envoyer" name="valider" value="valider">
         </form>

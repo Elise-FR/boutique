@@ -84,10 +84,8 @@
             <td>
                 <form method="post" action="cart.php"> <input type="number" name="quantite" min="0" placeholder="0">
             <td><input type="submit" class="btn btn-primary" id="envoyer" name="envoyer" value="commander"></td>
-            <input type="hidden" name="name" value="<?php echo $value['name'] ?>" />
-        <input type="hidden" name="price" value="<?php echo formatPrice($value['price']) ?>" />
-        <input type="hidden" name="price_d" value=" <?php echo formatPrice(displayDiscountedPrice($value['price'], $value['discount'])) ?>" />
-        <input type="hidden" name="weight" value="<?php echo $value['weight'] ?>" />
+            <input type="hidden" name="allproducts" value="<?php echo $key?>" /> 
+
         
 
 
