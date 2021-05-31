@@ -43,8 +43,14 @@
     return number_format($frais_de_port = $prixtotalttc*(10/100) , 2);
 }
 
-    }
+else {
+    
+    $frais_de_port = 0;
 
+    return number_format($frais_de_port);
+
+    }
+    }
 
 
 
