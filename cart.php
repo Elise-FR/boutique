@@ -31,6 +31,7 @@ $weightcolis = $_POST['weight']*$_POST["quantite"];
         <th>Valeur TVA</th>
         <th>Total TTC</th>
         <th>Transporteur</th>
+        <th>Frais de port</th>
 
     </tr>
 
@@ -38,12 +39,13 @@ $weightcolis = $_POST['weight']*$_POST["quantite"];
     <td> <?php echo $_POST["name"] ?></td>
     <td><?php echo $_POST["price"] . "€" ?></td>
     <td><?php echo $_POST["price_d"] . "€" ?></td>
-    <td><?php echo $_POST["quantite"] ?></td>
+    <td><?php echo (int) $_POST["quantite"] ?></td>
     <td><?php echo $weightcolis . "g" ?></td>
     <td><?php echo $prixtotalht . "€" ?> </td>
     <td><?php echo $tva . "€" ?> </td>
     <td><?php echo $prixtotalttc . "€" ?> </td>
     <td><?php echo $_POST["transporteur"] ?> </td>
+    <td><?php echo fraisDePort($weightcolis,$prixtotalttc) . "€" ?></td>
 
 
 

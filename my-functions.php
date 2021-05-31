@@ -17,7 +17,7 @@
 
         $price_ht = (100 * $price_ttc) / (100 + 20);
 
-        return $price_ht;
+        return number_format($price_ht, 2);
     }
 
 
@@ -31,9 +31,22 @@
         return $price_ttc - $montant_remise;
     }
 
+    function fraisDePort ($weight, $prixtotalttc) {
+
+        if ($weight<=500) {
+
+           return number_format($frais_de_port= 5,2);
+        }
+
+ else if ($weight<=2000) {
+
+    return number_format($frais_de_port = $prixtotalttc*(10/100) , 2);
+}
+
+    }
 
 
-   
+
 
 
 
