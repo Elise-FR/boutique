@@ -31,6 +31,8 @@
         return $price_ttc - $montant_remise;
     }
 
+    
+
     function fraisDePort ($weight, $prixtotalttc) {
 
         if ($weight<=500) {
@@ -51,7 +53,6 @@ else {
 
     }
     }
-
 
 
 
