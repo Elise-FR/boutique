@@ -23,7 +23,7 @@ $prixtotalttc = $pricediscount * $_POST["quantite"];
 $prixtotalttc = $pricediscount* $_POST["quantite"];
 $prixtotalht = priceExcludingVAT($prixtotalttc);
 $tva = $prixtotalttc - $prixtotalht;
-$weightcolis = $_POST['weight'] * $_POST["quantite"];
+$weightcolis = $products[$_POST['allproducts']]['weight'] * $_POST["quantite"];
 $total_fp = $prixtotalttc + fraisDePort($weightcolis, $prixtotalttc);
 
 ?>
