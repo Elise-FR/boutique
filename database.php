@@ -12,25 +12,32 @@ try {
 
 <?php
 
-function listingproducts()
-{
+    /* Cette fonction fait la requete en BDD */
 
+function queryproducts($querytoexecute) {
     $bdd = accessbdd();
+    $query = $bdd->query($querytoexecute);
+    $query->execute();
+    return $query->fetchAll(PDO::FETCH_ASSOC);
 
-    $query_1 = $bdd->query('SELECT * 
-FROM products');
+}
 
-    while ($donnees = $query_1->fetch()) {
+/* Fonction qui liste mes produits */
 
-        echo $donnees['name'];
-        echo $donnees['description'];
-        echo $donnees['price'];
-        echo $donnees['quantity'];
-    }
-    $query_1->closeCursor();
-} ?> 
+function listingproducts () {
+    $bdd = accessbdd();
+    $query_1= 'SELECT * FROM products';
+    return queryproducts($query_1);
+}
+
+
+ ?> 
+
+
+
 
 <?php
+
 
 function detailsproducts()
 {
