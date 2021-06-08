@@ -60,7 +60,7 @@ return queryproducts($query_6);
 
 <?php
 
-/*Fontction qui m'affiche chaque commande et son total d'un client spécifique*/
+/*Fonction qui m'affiche chaque commande et son total d'un client spécifique*/
 
 function ordersForOneCustomer()
 {
@@ -77,4 +77,14 @@ function ordersForOneCustomer()
 
 } ?>
 
-  
+<?php 
+/*Fonction qui m'affiche la suppression d'un article*/
+
+function suppOneProduct() {
+    $bdd = accessbdd();
+    $query_supp = 'DELETE products
+    From products
+    WHERE id=10';
+
+
+}

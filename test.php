@@ -51,6 +51,7 @@ foreach (totalorders() as $order) { ?>
         <p><?php echo $orderscustomer['totalPrice'] ?> €</p>
     <?php } ?>
 
+    <h3> Article supprimé :</h3>
 
 
 
