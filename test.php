@@ -12,7 +12,19 @@
     include("database.php");
     ?>
 
-   <?php echo listingproducts()?>
+
+<?php echo listingproducts() ?>
+    
+
+    <?php echo '<br>' ?>;
+    <?php echo detailsproducts() ?>
+
+    <?php echo '<br>' ?>;
+
+<?php echo totalorders() ?>
+
+<?php echo onecustomer() ?>
+  
 
 
 
