@@ -31,77 +31,50 @@ function listingproducts () {
 }
 
 
- ?> 
+/*Fontction qui m'affiche les produits avec une quantité = 0*/
 
-
-
-
-<?php
-
-
-function detailsproducts()
-{
+function productsWithQuantityNull() {
 
     $bdd = accessbdd();
 
-    $query_2 = $bdd->query('SELECT `products` . `name`, `products` . `quantity`
-FROM `products`
-WHERE `products` . `quantity` = 0');
+    $query_2 = 'SELECT `products` . `name`, `products` . `quantity` FROM `products` WHERE `products` . `quantity` = 0';
+    return queryproducts($query_2);
 
-    while ($donnees = $query_2->fetch()) {
+}
 
-        echo $donnees['name'];
-        echo $donnees['quantity'];
-    }
-    $query_2->closeCursor();
-} ?>
-
-<?php
+/*Fonction qui m'affiche le total de chaque commande*/
 
 function totalorders()
 {
     $bdd = accessbdd();
 
-    $query_6 = $bdd->query('SELECT orders.number, sum(order_product.quantity * products.price) AS totalPrice
+    $query_6 = 'SELECT orders.number, sum(order_product.quantity * products.price) AS totalPrice
 FROM orders
 INNER JOIN order_product ON orders.id = order_product.order_id
 INNER JOIN products ON products.id = order_product.product_id
-GROUP BY orders.number');
-
-    while ($donnees = $query_6->fetch()) {
-
-        echo $donnees['number'];
-        echo "<br>";
-        echo $donnees['totalPrice'];
-        echo "<br>";
-    }
-
-    echo "<br>";
-
-    $query_6->closeCursor();
-} ?>
+GROUP BY orders.number';
+return queryproducts($query_6); 
+}
+?>
 
 
 <?php
 
-function onecustomer()
+/*Fontction qui m'affiche chaque commande et son total d'un client spécifique*/
+
+function ordersForOneCustomer()
 {
 
     $bdd = accessbdd();
-    $query_9 = $bdd->query('SELECT orders.number, sum(order_product.quantity * products.price) AS totalPrice, customers.first_name
+    $query_9 = 'SELECT orders.number, sum(order_product.quantity * products.price) AS totalPrice, customers.first_name
     FROM orders
     INNER JOIN order_product ON orders.id = order_product.order_id
     INNER JOIN products ON products.id = order_product.product_id
     INNER JOIN customers ON customers.id = orders.customer_id
     WHERE customers.first_name = \'Charlize\'
-    GROUP BY orders.number');
+    GROUP BY orders.number';
+    return queryproducts($query_9);
 
-    while ($donnees = $query_9->fetch()) {
-        echo $donnees['number'];
-        echo "<br>";
-        echo $donnees['totalPrice'];
-        echo "<br>";
-    }
-
-    $query_9->closeCursor();
 } ?>
+
+  

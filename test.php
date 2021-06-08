@@ -11,26 +11,46 @@
     <?php
     include("database.php");
     ?>
+ <h3> Liste des produits :</h3>
+    <?php
+    foreach (listingproducts() as $products) { ?>
 
-<?php
-foreach (listingproducts() as $products) { ?>
+        <p><strong><?php echo $products['name'] ?> </strong> : <?php echo $products['description']; ?> </p>
+        <p><?php echo $products['price']; ?> Centimes d'€ </p>
+        <p>Quantité restante :<?php echo $products['quantity']; ?> </p>
 
-   <p><strong><?php echo $products['name'] ?> </strong> : <?php echo $products['description']; ?> </p>
-   <p><?php echo $products['price'];?> Centimes d'€ </p>
-   <p>Quantité restante :<?php echo $products['quantity'];?> </p>
+    <?php } ?>
+
+    <h3> Produits avec quantité nulle </h3>
+
+    <?php
+
+    foreach (productsWithQuantityNull() as $products) { ?>
+
+        <p><strong><?php echo $products['name'] ?> </strong> </p>
+        <p>Quantité restante :<?php echo $products['quantity']; ?> </p>
+    <?php } ?>
+
+    <h3> Total de chaque commande :</h3>
+
+<?php 
+
+foreach (totalorders() as $order) { ?>
+<p><strong><?php echo $order['number'] ?> </strong></p>
+<p><?php echo $order['totalPrice'] ?> € </p>
 
 <?php } ?>
-    
 
-    <?php echo '<br>' ?>;
-    <?php echo detailsproducts() ?>
+<h3> Liste des commandes et total du client Charlize :</h3>
 
-    <?php echo '<br>' ?>;
+    <?php 
 
-<?php echo totalorders() ?>
+    foreach(ordersForOneCustomer() as $orderscustomer) { ?>
 
-<?php echo onecustomer() ?>
-  
+        <p><strong><?php echo $orderscustomer['number'] ?> </strong></p>
+        <p><?php echo $orderscustomer['totalPrice'] ?> €</p>
+    <?php } ?>
+
 
 
 
