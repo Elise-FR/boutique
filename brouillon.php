@@ -215,3 +215,71 @@ for ($i; $i < count($products); $i++) {
                 </select>
 
                 <input type="hidden" name="allproducts" value="<?php echo $key ?>" />
+
+
+
+                <p>
+    <strong>Produit</strong> : <?php echo $donnees['name']; ?><br/>
+    <?php echo $donnees['description']; ?><br/>
+    Le prix du produit est :  <?php echo $donnees['price']; ?> centimes d'€<br/>
+    Voici la quantité : <?php echo $donnees['quantity']; ?><br/>
+    </p>
+
+    <?php
+
+$reponse = $bdd-> query('SELECT `products` . `name`, `products` . `quantity`
+FROM `products`
+WHERE `products` . `quantity` = 0');
+
+?>
+
+
+<?php
+while($donnees = $reponse ->fetch()) {
+    ?>
+
+<p>
+
+<strong>Produits avec quantité nulle : </strong><br/>
+
+    Produit: <?php echo $donnees['name']; ?><br/>
+    Voici la quantité : <?php echo $donnees['quantity']; ?><br/>
+    </p>
+
+<?php
+}
+?>
+
+<?php
+$reponse->closeCursor(); ?>
+
+
+<?php
+
+$reponse = $bdd-> query('SELECT orders.number, sum(order_product.quantity * products.price) 
+FROM orders
+INNER JOIN order_product ON orders.id = order_product.order_id
+INNER JOIN products ON products.id = order_product.product_id
+GROUP BY orders.number');
+
+?>
+
+<?php
+while($donnees = $reponse ->fetch()) {
+    ?>
+
+<p>
+
+<strong>Total des commandes:</strong><br/>
+
+    Commande n°: <?php echo $donnees['number']; ?><br/>
+  
+
+   </p>
+
+   <?php
+}
+?>
+
+<?php
+$reponse->closeCursor(); ?>
