@@ -7,11 +7,7 @@ try {
     }
 } catch (exception $e) {
     die('Erreur : ' . $e->getMessage());
-} ?>
-
-
-<?php
-
+} 
     /* Cette fonction fait la requete en BDD */
 
 function queryproducts($querytoexecute) {
@@ -78,13 +74,25 @@ function ordersForOneCustomer()
 } ?>
 
 <?php 
-/*Fonction qui m'affiche la suppression d'un article*/
+/*Fonction qui m'affiche l'ajout d'un article*/
 
-function suppOneProduct() {
+function addOneProduct($name,$description,$price,$image,$weight,$quantity,$available,$category_id) {
     $bdd = accessbdd();
-    $query_supp = 'DELETE products
-    From products
-    WHERE id=10';
+    $query_add = $bdd->prepare('INSERT INTO products (name, description, price, image, weight, quantity, available, category_id)
+    VALUE (:name, :description, :price, :image, :weight, :quantity, :available, :category_id)');
+    $query_add->execute(array(
+        'name' => $name,
+        'description' => $description,
+        'price' => $price,
+        'image' => $image, 
+        'weight' => $weight,
+        'quantity' => $quantity,
+        'available' => $available,
+        'category_id' => $category_id, 
 
 
-}
+    ));
+
+    echo "Le produit a bien été ajouté";
+  
+};
