@@ -38,7 +38,7 @@ class Article {
        <li> <?php echo "Voici l'article" . $this->name ?></li>
        <li> <?php echo "Description :" . $this->description ?></li>
        <li> <?php echo "Prix :" . $this->price . "€" ?></li>
-       <li> <?php echo "" . $this->image ?></li>
+       <li> <?php echo '<img src ="' . $this->image . '" alt="" width="200">' ?></li>
        <li> <?php echo "Poids :" . $this->weight . "g"?></li>
        <li> <?php echo "quantité en stock :" . $this->quantity?></li>
        <li> <?php echo "Disponiblités :" . $this->available?></li>

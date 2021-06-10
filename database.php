@@ -21,7 +21,7 @@ function queryproducts($querytoexecute) {
 /* Fonction qui liste mes produits */
 
 function listingproducts () {
-    $bdd = accessbdd();
+
     $query_1= 'SELECT * FROM products';
     return queryproducts($query_1);
 }
@@ -30,8 +30,6 @@ function listingproducts () {
 /*Fontction qui m'affiche les produits avec une quantité = 0*/
 
 function productsWithQuantityNull() {
-
-    $bdd = accessbdd();
 
     $query_2 = 'SELECT `products` . `name`, `products` . `quantity` FROM `products` WHERE `products` . `quantity` = 0';
     return queryproducts($query_2);
@@ -42,7 +40,6 @@ function productsWithQuantityNull() {
 
 function totalorders()
 {
-    $bdd = accessbdd();
 
     $query_6 = 'SELECT orders.number, sum(order_product.quantity * products.price) AS totalPrice
 FROM orders
@@ -61,7 +58,6 @@ return queryproducts($query_6);
 function ordersForOneCustomer()
 {
 
-    $bdd = accessbdd();
     $query_9 = 'SELECT orders.number, sum(order_product.quantity * products.price) AS totalPrice, customers.first_name
     FROM orders
     INNER JOIN order_product ON orders.id = order_product.order_id

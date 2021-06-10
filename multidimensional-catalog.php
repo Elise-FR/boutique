@@ -1,12 +1,3 @@
-<?php 
-
-if ($_POST["quantite"] ===0 || $_POST["quantite"] !=int) {
-
-    return header()
-};
-
-
-?>
 
 <html>
 
