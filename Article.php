@@ -26,7 +26,7 @@ class Article {
         $this->weight = $weight;
         $this->quantity =$quantity;
         $this->available= $available;
-        $this->categroty_id = $catgerory_id;
+      
         
     }
 
@@ -42,7 +42,8 @@ class Article {
        <li> <?php echo "Poids :" . $this->weight . "g"?></li>
        <li> <?php echo "quantité en stock :" . $this->quantity?></li>
        <li> <?php echo "Disponiblités :" . $this->available?></li>
-       <li> <?php echo "Id:" . $this->category_id?></li>
+   
+       
 <?php echo '<br>';
      }
 

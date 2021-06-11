@@ -25,6 +25,9 @@
             <p><input type="number" name="quantity" placeholder="quantity"></p>
             <p><input type="number" name="available" placeholder="available"></p>
             <p><input type="number" name="category_id" placeholder="category"></p>
+            <p><input type="number" name="level" placeholder="level"></p>
+            <p><input type="number" name="size" placeholder="size"></p>
+            <p><input type="text" name="brand" placeholder="brand"></p>
             <p><input type="submit" class="btn btn-primary" id="ajouter" name="ajouter" value="ajouter"></p>
 
             </tr>

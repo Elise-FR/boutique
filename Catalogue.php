@@ -21,7 +21,7 @@
 
             foreach ($listing as $product) {
 
-                $product = new Article($product['name'], $product['description'], $product['price'], $product['image'], $product['weight'], $product['quantity'], $product['available'], $product['category_id']);
+                $product = new Article($product['name'], $product['description'], $product['price'], $product['image'], $product['weight'], $product['quantity'], $product['available'], $product['category_id'],$_POST['level'],$_POST['size'],$_POST['brand']);
             
             array_push($this->listingProducts, $product);
             
