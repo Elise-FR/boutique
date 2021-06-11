@@ -43,8 +43,8 @@ class Article {
        <li> <?php echo "quantité en stock :" . $this->quantity?></li>
        <li> <?php echo "Disponiblités :" . $this->available?></li>
        <li> <?php echo "Id:" . $this->category_id?></li>
-<?php
-    }
+<?php echo '<br>';
+     }
 
 }
 

@@ -26,6 +26,14 @@ function listingproducts () {
     return queryproducts($query_1);
 }
 
+/* Fonction qui liste mes clients */
+
+function listingclients () {
+
+    $query_c= 'SELECT * FROM customers';
+    return queryproducts($query_c);
+}
+
 
 /*Fontction qui m'affiche les produits avec une quantité = 0*/
 

@@ -5,12 +5,13 @@
 
 
 <?php 
-$products = ["roue", "planche","stickers"];
+    include ("Article.php");
+    include ("Catalogue.php");
 
-?>
+    $catalogue = new Catalogue();
+    $catalogue->displayCat();
 
-
-<?php
+/*
 $first_product = reset($products);
 $last_product = end($products);
 sort($products);
@@ -25,6 +26,25 @@ echo "My last product is $last_product";
     <li><?php echo $products[1]?></li>
     <li><?php echo $products[2]?></li>
 </ls>
+
+
+
+<p> Affichage des produits avec la boucle Foreach :</p>
+
+<?php 
+
+foreach($products as $value) {
+    echo "Affichage du produit : " . $value . "<br/>";
+}
+
+?>
+
+
+
+
+<?php 
+
+/*
 
 <p> Affichage des produits avec la boucle While :</p>
 
@@ -71,19 +91,14 @@ for($i; $i<count($products); $i++) {
 
 ?>
 
-<p> Affichage des produits avec la boucle Foreach :</p>
 
-<?php 
 
-foreach($products as $value) {
-    echo "Affichage du produit : " . $value . "<br/>";
-}
+
+*/
 
 ?>
 
-
-
-
-
 </body>
+
 </html>
+
