@@ -93,6 +93,7 @@ function addOneProduct($name,$description,$price,$image,$weight,$quantity,$avail
         'quantity' => $quantity,
         'available' => $available,
         'category_id' => $category_id, 
+        
 
 
     ));
