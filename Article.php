@@ -65,8 +65,13 @@ class Article {
        <li> <?php echo "quantité en stock :" . $this->quantity?></li>
        <li> <?php echo "Disponiblités :" . $this->available?></li>
        <li> <?php echo "ID catégorie :" . $this->category_id?></li>
-   
-       
+
+       <form method="post" action="formspanier.php">
+       <p><input type="number" name="quantity" placeholder="quantity"></p>
+       <p><input type="submit" class="btn btn-primary" id="ajouter" name="ajouter" value="ajouter au panier"></p>
+       </form>
+
+
 <?php echo '<br>';
      }
 

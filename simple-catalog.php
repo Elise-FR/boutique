@@ -5,13 +5,7 @@
 
 
 <?php 
-    include ("Article.php");
-    include ("Catalogue.php");
 
-    $catalogue = new Catalogue();
-    $catalogue->displayCat();
-
-/*
 $first_product = reset($products);
 $last_product = end($products);
 sort($products);
@@ -39,12 +33,6 @@ foreach($products as $value) {
 
 ?>
 
-
-
-
-<?php 
-
-/*
 
 <p> Affichage des produits avec la boucle While :</p>
 
@@ -88,13 +76,6 @@ for($i; $i<count($products); $i++) {
 
     echo "Affichage du produit : " . $product . "<br/>";
 }
-
-?>
-
-
-
-
-*/
 
 ?>
 
