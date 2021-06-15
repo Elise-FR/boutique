@@ -14,9 +14,9 @@ $catalogue->displayCat(); */
 
 $panier = new Panier();
 $panier->addAtMyPanier(2);
-
-
+$panier->updateMyPanier(2,15);
 $panier->displayPanier();
+
 
 //var_dump($panier);
 

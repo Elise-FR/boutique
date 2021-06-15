@@ -40,14 +40,10 @@ class Panier
 
     public function deleteMyPanier($article_id)
 
-    { if(isset($this->myPanier[$article_id])) {
-
-
-    }
-
-
+    { 
 
     }
+
 
     public function displayPanier() {
 
